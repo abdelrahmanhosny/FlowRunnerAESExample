@@ -15,7 +15,7 @@ stages:
   - ls
     - tool: yosys
     - params:
-      - p1: true
+      - p1: false
       - p2: 12
   - fp
     - tool: sim
