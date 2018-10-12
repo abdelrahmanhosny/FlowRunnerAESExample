@@ -2,7 +2,7 @@ version: '1'
 
 design_file: i10.aig
 
-library: 14nm.genlib
+library: 27nm.genlib
 
 flow:
   - ls
