@@ -1,0 +1,39 @@
+version: '1'
+
+design_file: i10.aig
+
+library: 14nm.genlib
+
+flow:
+  - ls
+  - fp
+  - pl
+  - rt
+  - cts
+
+stages:
+  - ls
+    - tool: yosys
+    - params:
+      - p1: true
+      - p2: 12
+  - fp
+    - tool: sim
+    - params:
+      - p1: false
+      - p2: 'default'
+  - pl
+    - tool: replace
+    - params:
+      - p1: true
+      - p2: 'default'
+  - rt
+    - tool: sim
+    - params:
+      - p1: 'default'
+      - p2: 'default'
+  - cts
+    - tool: sim
+    - params:
+      - p1: false
+      - p2: true
