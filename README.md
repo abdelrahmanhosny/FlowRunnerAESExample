@@ -1,4 +1,4 @@
-# OpenROAD Template Flow
+# OpenROAD Template Design
 This repo is a template for running a flow on the OpenROAD platform. In order to be able to run the flow autonomously, follow these steps:
 
 1. Fork this repo to your user account
