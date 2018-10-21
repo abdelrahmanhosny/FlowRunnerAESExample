@@ -9,7 +9,7 @@ This repo is a template for running a flow on the OpenROAD cloud platform. In or
 
 
 ### What are web hooks?
-A web hook is a trigger that the repo sends to OpenROAD platform to inform it that there is a new version of the repo commited (and pushed). Once a trigger received, OpenROAD platform will pull the latest version of the repo and run the flow using the parameters in `.openroad-ci.yml` file. 
+A web hook is a trigger that the repo sends to OpenROAD platform to inform it that there is a new version of the repo commited (and pushed). Once a trigger received, OpenROAD platform will pull the latest version of the repo and run the flow using the parameters in `openroad-flow.yml` file. 
 
 If you imported a project manually, the OpenROAD platform won't be able to configure a web hook for your repo. However, you can still configure this web hook manually. Refer to our documentation for detailed steps.
 
