@@ -1,7 +1,12 @@
 version: '1'
 
-design_file: i10.aig
+# put your design source file(s) in the design folder
+# change this to your design file name
+design_file: design/my_design.v
 
+# available libraries on https://flow.theopenroadproject.org
+# select from the below options
+# [14nm.genlib, 17nm.genlib, 22nm.genlib]
 library: 14nm.genlib
 
 flow:
@@ -11,6 +16,7 @@ flow:
   - rt
   - cts
 
+# customize your flow using the parameters below
 stages:
   - ls
     - tool: yosys
