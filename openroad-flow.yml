@@ -1,45 +1,52 @@
 version: '1'
 
+# emails to receive notifications on
+notify_emails:
+  - email@example.com
+
 # put your design source file(s) in the design folder
-# change this to your design file name
-design_file: design/my_design.v
+# write down add design file names to be synthesized
+design_files: 
+  - my_design_1.v
+  - my_design_2.v
+  - my_design_3.v
 
 # available libraries on https://flow.theopenroadproject.org
 # select from the below options
-# [14nm.genlib, 17nm.genlib, 22nm.genlib]
-library: 14nm.genlib
+# [14nm.genlib, 16nm.genlib, 22nm.genlib]
+library: 16nm.lib
 
 flow:
   - ls
   - fp
   - pl
-  - rt
   - cts
+  - rt
 
 # customize your flow using the parameters below
 stages:
-  - ls
-    - tool: yosys
-    - params:
+  ls:
+    tool: yosys
+    params:
       - p1: false
       - p2: 12
-  - fp
-    - tool: sim
-    - params:
+  fp:
+    tool: sim
+    params:
       - p1: false
       - p2: 'default'
-  - pl
-    - tool: replace
-    - params:
+  pl:
+    tool: replace
+    params:
       - p1: true
       - p2: 'default'
-  - rt
-    - tool: sim
-    - params:
-      - p1: 'default'
-      - p2: 'default'
-  - cts
-    - tool: sim
-    - params:
+  cts:
+    tool: sim
+    params:
       - p1: false
       - p2: true
+  rt:
+    tool: sim
+    params:
+      - p1: 'default'
+      - p2: 'default'
