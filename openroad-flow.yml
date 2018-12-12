@@ -1,52 +1,51 @@
 version: '1'
 
-# emails to receive notifications on
-notify_emails:
-  - email@example.com
+# Whether to receive email notifications or not
+notify_email: True
 
 # put your design source file(s) in the design folder
 # write down add design file names to be synthesized
 design_files: 
-  - my_design_1.v
-  - my_design_2.v
-  - my_design_3.v
+  - rv32_CPU.v
+
+top_level_module: rv32_CPU
 
 # available libraries on https://flow.theopenroadproject.org
 # select from the below options
-# [14nm.genlib, 16nm.genlib, 22nm.genlib]
-library: 16nm.lib
+# [osu045.lib]
+library: osu045.lib
 
 flow:
-  - ls
-  - fp
-  - pl
-  - cts
-  - rt
+  - logic_synthesis
+  - floor_planning
+  - placement
+  - clock_tree_synthesis
+  - routing
 
 # customize your flow using the parameters below
 stages:
-  ls:
+  logic_synthesis:
     tool: yosys
     params:
       - p1: false
       - p2: 12
-  fp:
-    tool: sim
+  floor_planning:
+    tool: tw
     params:
       - p1: false
       - p2: 'default'
-  pl:
+  placement:
     tool: replace
     params:
       - p1: true
       - p2: 'default'
-  cts:
-    tool: sim
+  clock_tree_synthesis:
+    tool: tw
     params:
       - p1: false
       - p2: true
-  rt:
-    tool: sim
+  routing:
+    tool: tw
     params:
       - p1: 'default'
       - p2: 'default'
