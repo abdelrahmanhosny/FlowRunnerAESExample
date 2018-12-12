@@ -1,0 +1,16 @@
+
+twgds_define LAYER 1:0 nwell NONE BASE COLOR green
+twgds_define LAYER 2:0 nactive NONE BASE COLOR brown
+twgds_define LAYER 3:0 pactive NONE BASE COLOR yellow
+twgds_define LAYER 4:0 poly VERTICAL POLY COLOR red
+twgds_define LAYER 5:0 cc ORTHOGONAL CUT COLOR silver
+twgds_define LAYER 6:0 metal1 HORIZONTAL METAL COLOR blue
+twgds_define LAYER 7:0 via1 ORTHOGONAL METAL COLOR gray
+twgds_define LAYER 8:0 metal2 VERTICAL METAL COLOR magenta
+twgds_define LAYER 9:0 via2 ORTHOGONAL METAL COLOR gray
+twgds_define LAYER 10:0 metal3 HORIZONTAL METAL COLOR purple
+twgds_define LAYER 11:0 via3 ORTHOGONAL METAL COLOR gray
+twgds_define LAYER 12:0 metal4 VERTICAL METAL COLOR cyan
+twgds_define LAYER 45:0 prBoundary NONE BOUNDARY COLOR white
+twgds_define BOUNDARY 45:0 
+
