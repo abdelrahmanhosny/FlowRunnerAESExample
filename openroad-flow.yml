@@ -18,8 +18,8 @@ top_level_module: rv32_CPU
 clock: 1000000
 
 # available libraries on https://flow.theopenroadproject.org
-# select from [osu045.lib]
-library: osu045.lib
+# select from [osu035.lib]
+library: osu035.lib
 
 # constrains file
 sdc_file: riscv.sdc
