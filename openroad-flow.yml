@@ -3,18 +3,28 @@ version: '1'
 # Whether to receive email notifications or not
 notify_email: True
 
+# the name of the design
+design_name: riscv
+
 # put your design source file(s) in the design folder
-# write down add design file names to be synthesized
+# then, put write down a list of all input rtl files below
 design_files: 
   - rv32_CPU.v
 
+# name of top verilog modules
 top_level_module: rv32_CPU
 
+# the clock defnition
+clock: 1000000
+
 # available libraries on https://flow.theopenroadproject.org
-# select from the below options
-# [osu045.lib]
+# select from [osu045.lib]
 library: osu045.lib
 
+# constrains file
+sdc_file: riscv.sdc
+
+# flow definition
 flow:
   - logic_synthesis
   - floor_planning
