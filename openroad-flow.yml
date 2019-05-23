@@ -4,58 +4,55 @@ version: '1'
 notify_email: True
 
 # the name of the design
-design_name: riscv
+design_name: AES
 
 # put your design source file(s) in the design folder
 # then, put write down a list of all input rtl files below
 design_files: 
-  - rv32_CPU.v
+  - aes_cipher_top.v
+  - aes_key_expand_128.v
+  - aes_rcon.v
+  - aes_sbox.v
+  - aes_timescale.v
 
 # name of top verilog modules
-top_level_module: rv32_CPU
-
-# the clock defnition
-clock: 1000000
+top_level_module: aes_cipher_top
 
 # available libraries on https://flow.theopenroadproject.org
-# select from [osu035.lib]
-library: osu035.lib
+# select from [asap7.lib]
+library: asap7.lib
 
 # constrains file
-sdc_file: riscv.sdc
+sdc_file: aes_constraints.sdc
 
 # flow definition
 flow:
   - logic_synthesis
   - floor_planning
   - placement
-  - clock_tree_synthesis
-  - routing
 
-# customize your flow using the parameters below
+# configure flow parameters below
+# [IMPORTANT] replace 12345s!
 stages:
   logic_synthesis:
     tool: yosys
     params:
-      - p1: false
-      - p2: 12
+      - clock: 400
+      - optimize_aig: False
   floor_planning:
-    tool: tw
+    tool: script
     params:
-      - p1: false
-      - p2: 'default'
+      - defDbu: 4000
+      - dieAreaInMicron: 0 0 290 290
+      - siteName: coreSite
   placement:
     tool: replace
     params:
-      - p1: true
-      - p2: 'default'
-  clock_tree_synthesis:
-    tool: tw
-    params:
-      - p1: false
-      - p2: true
-  routing:
-    tool: tw
-    params:
-      - p1: 'default'
-      - p2: 'default'
+      - bmflag: etc
+      - t: 1
+      - dpflag: NTU3
+      - onlyDP: True
+      - unitY: 1080
+      - resPerMicron: 16
+      - capPerMicron: 0.048e-15
+      - timing: True

@@ -1,4 +1,4 @@
-# Flow @ OpenROAD Example Design - RISCV
+# Flow @ OpenROAD Example Design - AES
 
 This repo is an example for running a flow on the OpenROAD cloud platform. In order to try out this example on our cloud platform, follow the steps:
 
