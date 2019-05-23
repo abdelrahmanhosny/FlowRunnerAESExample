@@ -37,22 +37,22 @@ stages:
   logic_synthesis:
     tool: yosys
     params:
-      - clock: 400
-      - optimize_aig: False
+      clock: 400
+      optimize_aig: False
   floor_planning:
     tool: script
     params:
-      - defDbu: 4000
-      - dieAreaInMicron: 0 0 290 290
-      - siteName: coreSite
+      defDbu: 4000
+      dieAreaInMicron: 0 0 290 290
+      siteName: coreSite
   placement:
     tool: replace
     params:
-      - bmflag: etc
-      - t: 1
-      - dpflag: NTU3
-      - onlyDP: True
-      - unitY: 1080
-      - resPerMicron: 16
-      - capPerMicron: 0.048e-15
-      - timing: True
+      bmflag: etc
+      t: 1
+      dpflag: NTU3
+      onlyDP: True
+      unitY: 1080
+      resPerMicron: 16
+      capPerMicron: 0.048e-15
+      timing: True
